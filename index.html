@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>BluePort AI — Environmental Intelligence for Ports</title>
+<meta name="description" content="BluePort AI delivers environmental vision & analytics for cleaner, safer ports and coastal waters."/>
+<link rel="icon" href="blueport_icon.svg">
+<style>
+  :root {
+    --deep: #0B3C5D;
+    --sea: #1CA6A3;
+    --coral: #FF6F61;
+    --graphite: #263238;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--graphite); background: #f7fafb; }
+  .nav { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; background: var(--white); border-bottom:1px solid #e6eef2; position:sticky; top:0; }
+  .brand { display:flex; gap:12px; align-items:center; }
+  .brand img { height:40px; }
+  .brand h1 { font-size:18px; margin:0; color: var(--deep); letter-spacing:0.3px; }
+  .cta a { text-decoration:none; padding:10px 14px; border-radius:10px; background: var(--sea); color: var(--white); font-weight:600; }
+  .hero { display:grid; grid-template-columns: 1.2fr 1fr; gap:40px; padding:64px 22px; max-width:1100px; margin:0 auto; }
+  .hero h2 { font-size:40px; line-height:1.1; color: var(--deep); margin:0 0 14px; }
+  .hero p  { font-size:18px; margin:0 0 18px; }
+  .pill { display:inline-block; font-size:13px; background: #e6f7f6; color: var(--sea); padding:8px 12px; border-radius:999px; margin-bottom:10px; }
+  .cardgrid { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; max-width:1100px; margin:0 auto; padding: 0 22px 44px; }
+  .card { background: var(--white); border:1px solid #e6eef2; border-radius:16px; padding:18px; }
+  .card h3 { margin:0 0 8px; font-size:18px; color: var(--deep); }
+  .card p { margin:0; font-size:14px; }
+  .section { max-width:1100px; margin:0 auto; padding: 28px 22px 64px; }
+  .footer { text-align:center; color:#6d7a83; padding:32px; font-size:13px; }
+  .hero-visual { display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, #e6f7ff, #f7fffe); border:1px solid #e6eef2; border-radius:16px; padding:22px; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">
+    <img src="blueport_icon.svg" alt="BluePort AI icon"/>
+    <h1>BluePort AI</h1>
+  </div>
+  <div class="cta"><a href="#contact">Get in touch</a></div>
+</nav>
+
+<section class="hero">
+  <div>
+    <span class="pill">Environmental Intelligence for Ports & Coastal Waters</span>
+    <h2>Computer vision & analytics for cleaner, safer port operations.</h2>
+    <p>Detect, classify, and quantify floating debris and pollutants across piers, fairways, and basins. Prioritize cleanup, report KPIs, and accelerate ESG goals.</p>
+    <p><strong>Roadmap:</strong> mobile photo logging → pier cameras → drone (UAV/USV) surveys with edge AI.</p>
+  </div>
+  <div class="hero-visual">
+    <img src="blueport_logo.svg" alt="BluePort AI" style="max-width:100%; height:auto;"/>
+  </div>
+</section>
+
+<section class="cardgrid">
+  <div class="card">
+    <h3>Debris Detection</h3>
+    <p>Identify plastics, glass, metals, organics and more with on-site AI. Heatmaps expose recurring hotspots.</p>
+  </div>
+  <div class="card">
+    <h3>Operational KPIs</h3>
+    <p>Items/hour, items/m², % plastics, response time, and estimated kg removed — aligned with SDG 11/12/14.</p>
+  </div>
+  <div class="card">
+    <h3>Edge + Drones</h3>
+    <p>Run on Jetson Orin or similar devices. Fly or sail pre-planned missions to scan berths and channels.</p>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h3 style="color:var(--deep); margin:0 0 8px;">Contact</h3>
+  <p>Email: <a href="mailto:hello@blueport.ai">hello@blueport.ai</a> · GitHub: <a href="#">blueportai</a> · LinkedIn: <a href="#">BluePort AI</a></p>
+</section>
+
+<footer class="footer">
+  © 2025 BluePort AI. All rights reserved.
+</footer>
+</body>
+</html>
