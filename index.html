@@ -1,82 +1,196 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BluePort AI — Environmental Intelligence for Ports</title>
-<meta name="description" content="BluePort AI delivers environmental vision & analytics for cleaner, safer ports and coastal waters."/>
-<link rel="icon" href="blueport_icon.svg">
-<style>
-  :root {
-    --deep: #0B3C5D;
-    --sea: #1CA6A3;
-    --coral: #FF6F61;
-    --graphite: #263238;
-    --white: #FFFFFF;
-  }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--graphite); background: #f7fafb; }
-  .nav { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; background: var(--white); border-bottom:1px solid #e6eef2; position:sticky; top:0; }
-  .brand { display:flex; gap:12px; align-items:center; }
-  .brand img { height:40px; }
-  .brand h1 { font-size:18px; margin:0; color: var(--deep); letter-spacing:0.3px; }
-  .cta a { text-decoration:none; padding:10px 14px; border-radius:10px; background: var(--sea); color: var(--white); font-weight:600; }
-  .hero { display:grid; grid-template-columns: 1.2fr 1fr; gap:40px; padding:64px 22px; max-width:1100px; margin:0 auto; }
-  .hero h2 { font-size:40px; line-height:1.1; color: var(--deep); margin:0 0 14px; }
-  .hero p  { font-size:18px; margin:0 0 18px; }
-  .pill { display:inline-block; font-size:13px; background: #e6f7f6; color: var(--sea); padding:8px 12px; border-radius:999px; margin-bottom:10px; }
-  .cardgrid { display:grid; grid-template-columns: repeat(3,1fr); gap:18px; max-width:1100px; margin:0 auto; padding: 0 22px 44px; }
-  .card { background: var(--white); border:1px solid #e6eef2; border-radius:16px; padding:18px; }
-  .card h3 { margin:0 0 8px; font-size:18px; color: var(--deep); }
-  .card p { margin:0; font-size:14px; }
-  .section { max-width:1100px; margin:0 auto; padding: 28px 22px 64px; }
-  .footer { text-align:center; color:#6d7a83; padding:32px; font-size:13px; }
-  .hero-visual { display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, #e6f7ff, #f7fffe); border:1px solid #e6eef2; border-radius:16px; padding:22px; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blueport • Assistente IA</title>
+  <meta name="description" content="Blueport é um assistente de IA em português focado em resíduos e sustentabilidade portuária, integrando Telegram, análise de imagens e automações." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07152c;
+      --panel: #0b1d3b;
+      --text: #e8f1ff;
+      --muted: #a3b4d9;
+      --brand: #3ea0ff;
+      --brand-2: #6bc3ff;
+      --accent: #123f7a;
+      --ring: 0 0 0 6px rgba(62, 160, 255, .18);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans';
+      color: var(--text);
+      background: linear-gradient(180deg, #081a35 0%, #061124 100%);
+      line-height: 1.5;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container {
+      width: min(1120px, 92vw);
+      margin-inline: auto;
+      padding: 28px 0 64px;
+    }
+    header {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(11, 29, 59, .9), rgba(11, 29, 59, .4));
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
+    .logo { display:flex; gap:12px; align-items:center; font-weight:700; letter-spacing:.3px; }
+    .logo-badge { width:36px; height:36px; border-radius:12px; background: linear-gradient(135deg, var(--brand), var(--brand-2)); display:grid; place-items:center; color:#051018; font-weight:800; }
+
+    .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap:32px; align-items:center; padding:48px 0 8px; }
+    @media (max-width: 900px){ .hero { grid-template-columns: 1fr; text-align:center; } }
+    .title { font-size: clamp(28px, 5vw, 54px); line-height: 1.06; margin:0 0 16px; font-weight:800; color: var(--brand-2); }
+    .subtitle { color: var(--muted); font-size: clamp(16px, 2.5vw, 19px); margin: 0 0 28px; }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+
+    .mock {
+      aspect-ratio: 4/3;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #0b1f40 0%, #0a1630 100%);
+      border:1px solid rgba(255,255,255,.08);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-direction:column;
+      color:var(--brand-2);
+      font-weight:700;
+      letter-spacing:.6px;
+    }
+    .mock img {
+      width:150px;
+      height:150px;
+      object-fit:contain;
+      margin-bottom:12px;
+      box-shadow:0 0 25px rgba(107,195,255,.5);
+      border-radius:50%;
+      background: radial-gradient(circle at center, rgba(107,195,255,.15) 0%, transparent 70%);
+    }
+
+    .section { padding: 40px 0 10px; }
+    .section h2 { font-size: clamp(22px, 3vw, 32px); margin: 0 0 12px; color: var(--brand-2); }
+    .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; }
+    @media (max-width: 900px){ .grid { grid-template-columns: 1fr; } }
+    .kpi { display:flex; gap:10px; align-items:flex-start; }
+    .kpi .dot { width:10px; height:10px; border-radius:999px; background: var(--brand); box-shadow:0 0 0 6px rgba(62,160,255,.15); margin-top:7px; }
+    ul.clean { padding:0; list-style:none; margin: 8px 0 0; color: var(--muted); }
+    ul.clean li { padding: 6px 0; }
+
+    footer { margin-top: 56px; padding: 24px 0 46px; color: var(--muted); border-top: 1px solid rgba(255, 255, 255, .08); background: var(--panel); }
+  </style>
 </head>
 <body>
-<nav class="nav">
-  <div class="brand">
-    <img src="blueport_icon.svg" alt="BluePort AI icon"/>
-    <h1>BluePort AI</h1>
-  </div>
-  <div class="cta"><a href="#contact">Get in touch</a></div>
-</nav>
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-badge">B</div>
+        <div>Blueport • Assistente IA</div>
+      </div>
+    </div>
+  </header>
 
-<section class="hero">
-  <div>
-    <span class="pill">Environmental Intelligence for Ports & Coastal Waters</span>
-    <h2>Computer vision & analytics for cleaner, safer port operations.</h2>
-    <p>Detect, classify, and quantify floating debris and pollutants across piers, fairways, and basins. Prioritize cleanup, report KPIs, and accelerate ESG goals.</p>
-    <p><strong>Roadmap:</strong> mobile photo logging → pier cameras → drone (UAV/USV) surveys with edge AI.</p>
-  </div>
-  <div class="hero-visual">
-    <img src="blueport_logo.svg" alt="BluePort AI" style="max-width:100%; height:auto;"/>
-  </div>
-</section>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1 class="title">Blueport: IA para resíduos e sustentabilidade portuária</h1>
+        <p class="subtitle">O Blueport é focado em <strong>resíduos</strong> (fase inicial) e evoluirá para <strong>monitoramento de resíduos em portos com drones</strong>. Conecta Telegram, análise de imagens (CLIP/vision) e rotinas simples para resolver tarefas do dia a dia — tudo em português, com foco em velocidade e clareza.</p>
+      </div>
+      <div class="card mock">
+        <img src="blueport_mascot.svg" alt="Mascote Blueport">
+        <div>Mascote Blueport</div>
+      </div>
+    </section>
 
-<section class="cardgrid">
-  <div class="card">
-    <h3>Debris Detection</h3>
-    <p>Identify plastics, glass, metals, organics and more with on-site AI. Heatmaps expose recurring hotspots.</p>
-  </div>
-  <div class="card">
-    <h3>Operational KPIs</h3>
-    <p>Items/hour, items/m², % plastics, response time, and estimated kg removed — aligned with SDG 11/12/14.</p>
-  </div>
-  <div class="card">
-    <h3>Edge + Drones</h3>
-    <p>Run on Jetson Orin or similar devices. Fly or sail pre-planned missions to scan berths and channels.</p>
-  </div>
-</section>
+    <section id="recursos" class="section">
+      <h2>Recursos principais</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="kpi"><span class="dot"></span><h3>Chat em Português</h3></div>
+          <p>Interações naturais e contextuais, com respostas objetivas e úteis.</p>
+          <ul class="clean">
+            <li>Tom amigável e profissional</li>
+            <li>Boas práticas de segurança e privacidade</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="kpi"><span class="dot"></span><h3>Visão por Imagem</h3></div>
+          <p>Classificação zero-shot via CLIP/vision para cenários simples (ex.: resíduos).</p>
+          <ul class="clean">
+            <li>Suporte a JPG/PNG</li>
+            <li>Resultados com rótulo e confiança</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="kpi"><span class="dot"></span><h3>Integrações & Automações</h3></div>
+          <p>Pronto para conectar a bots do Telegram e executar rotinas de checagem/alertas.</p>
+          <ul class="clean">
+            <li>Webhook ou polling</li>
+            <li>Agendamentos simples</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<section class="section" id="contact">
-  <h3 style="color:var(--deep); margin:0 0 8px;">Contact</h3>
-  <p>Email: <a href="mailto:hello@blueport.ai">hello@blueport.ai</a> · GitHub: <a href="#">blueportai</a> · LinkedIn: <a href="#">BluePort AI</a></p>
-</section>
+    <section id="como-funciona" class="section">
+      <h2>Como funciona</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>1. Conecte seu bot</h3>
+          <p>Crie um bot no <strong>@BotFather</strong> e cole o token no ambiente (<code>TELEGRAM_BOT_TOKEN</code>).</p>
+        </div>
+        <div class="card">
+          <h3>2. Envie mensagens ou imagens</h3>
+          <p>O Blueport responde a texto e analisa fotos (inclusive como Documento, sem compressão).</p>
+        </div>
+        <div class="card">
+          <h3>3. Personalize</h3>
+          <p>Adapte rótulos, fluxos e respostas para seu caso (ex.: reciclagem, suporte, triagem).</p>
+        </div>
+      </div>
+    </section>
 
-<footer class="footer">
-  © 2025 BluePort AI. All rights reserved.
-</footer>
+    <section id="integracoes" class="section">
+      <h2>Integrações</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Telegram</h3>
+          <p>Compatível com <code>python-telegram-bot v20+</code>. Suporte a <em>commands</em> (/start, /diag), fotos e documentos.</p>
+        </div>
+        <div class="card">
+          <h3>Visão (CLIP)</h3>
+          <p>Modelo leve ViT-B/32 para classificações zero-shot em português. Rótulos via <code>labels.json</code>.</p>
+        </div>
+        <div class="card">
+          <h3>Arquitetura simples</h3>
+          <p>Arquivos principais: <code>waste_bot.py</code> (bot) e <code>waste_vision.py</code> (visão). Fácil de manter.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div>© <span id="y"></span> Blueport • Assistente IA. Feito com ❤️ em PT-BR.</div>
+      <div>Projeto de <strong>Darliane Cunha</strong> — <a href="mailto:darlianerc@gmail.com">darlianerc@gmail.com</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
