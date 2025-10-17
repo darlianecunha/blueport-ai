@@ -107,7 +107,7 @@
     <section class="hero">
       <div>
         <h1 class="title">Blueport: IA para resíduos e sustentabilidade portuária</h1>
-        <p class="subtitle">O Blueport é focado em <strong>resíduos</strong> (fase inicial) e evoluirá para <strong>monitoramento de resíduos em portos com drones</strong>. Conecta Telegram, análise de imagens (CLIP/vision) e rotinas simples para resolver tarefas do dia a dia — tudo em português, com foco em velocidade e clareza.</p>
+        <p class="subtitle">O Blueport é focado em <strong>resíduos</strong> (fase inicial) e evoluirá para <strong>monitoramento de resíduos em portos com drones</strong>. Conecta com Telegram e analisa imagens. </p>
       </div>
       <div class="card mock">
         <img src="blueport_mascot.svg" alt="Mascote Blueport">
@@ -141,42 +141,6 @@
             <li>Webhook ou polling</li>
             <li>Agendamentos simples</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="como-funciona" class="section">
-      <h2>Como funciona</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>1. Conecte seu bot</h3>
-          <p>Crie um bot no <strong>@BotFather</strong> e cole o token no ambiente (<code>TELEGRAM_BOT_TOKEN</code>).</p>
-        </div>
-        <div class="card">
-          <h3>2. Envie mensagens ou imagens</h3>
-          <p>O Blueport responde a texto e analisa fotos (inclusive como Documento, sem compressão).</p>
-        </div>
-        <div class="card">
-          <h3>3. Personalize</h3>
-          <p>Adapte rótulos, fluxos e respostas para seu caso (ex.: reciclagem, suporte, triagem).</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="integracoes" class="section">
-      <h2>Integrações</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Telegram</h3>
-          <p>Compatível com <code>python-telegram-bot v20+</code>. Suporte a <em>commands</em> (/start, /diag), fotos e documentos.</p>
-        </div>
-        <div class="card">
-          <h3>Visão (CLIP)</h3>
-          <p>Modelo leve ViT-B/32 para classificações zero-shot em português. Rótulos via <code>labels.json</code>.</p>
-        </div>
-        <div class="card">
-          <h3>Arquitetura simples</h3>
-          <p>Arquivos principais: <code>waste_bot.py</code> (bot) e <code>waste_vision.py</code> (visão). Fácil de manter.</p>
         </div>
       </div>
     </section>
